@@ -47,7 +47,7 @@
     </style>
 </head>
 <body>
-    <h1>Alumni Profiles and Skill Development</h1>
+    <h1>Student Profiles and Skill Development</h1>
     <div id="profiles"></div>
 
     <script>
@@ -55,133 +55,128 @@
 
     const profiles = [
         {
-            name: 'Alex Miller',
-            alumniJobs: ['Software Engineer at TechCorp', 'Backend Developer at CodeBase'],
-            skills: [], // Will be populated later
+            name: 'Emily Zhang',
+            university: 'University of California, Berkeley',
+            subject: 'Software Engineering (1st Year)',
+            skills: ['HTML', 'CSS', 'JavaScript (basic)', 'Teamwork'],
+            interests: ['Web Development', 'User Experience Design'],
             updatedSkills: [],
             recommendedCourses: []
         },
         {
-            name: 'Bethany Green',
-            alumniJobs: ['Data Scientist at DataX'],
-            skills: [],
+            name: 'Ryan Thompson',
+            university: 'University of Toronto',
+            subject: 'Environmental Science (2nd Year)',
+            skills: ['Data Collection', 'GIS (beginner)', 'Research', 'Microsoft Excel'],
+            interests: ['Sustainability', 'Conservation', 'Environmental Policy'],
             updatedSkills: [],
             recommendedCourses: []
         },
         {
-            name: 'Carl Edwards',
-            alumniJobs: ['Product Manager at InnovateLtd'],
-            skills: [],
+            name: 'Mia Fernandez',
+            university: 'New York University',
+            subject: 'Marketing (3rd Year)',
+            skills: ['Social Media Marketing', 'Content Creation', 'Google Analytics', 'Event Planning', 'Copywriting'],
+            interests: ['Digital Marketing', 'Brand Strategy', 'Social Media Trends'],
             updatedSkills: [],
             recommendedCourses: []
         },
         {
-            name: 'Denise Brown',
-            alumniJobs: ['UX Designer at DesignHub'],
-            skills: [],
+            name: 'Thomas Patel',
+            university: 'Georgia Institute of Technology',
+            subject: 'Mechanical Engineering (Final Year)',
+            skills: ['CAD (SolidWorks, AutoCAD)', '3D Modeling', 'MATLAB', 'Project Management', 'Lean Manufacturing'],
+            interests: ['Automotive Design', 'Sustainable Manufacturing', 'Robotics'],
             updatedSkills: [],
             recommendedCourses: []
         },
         {
-            name: 'Ethan Johnson',
-            alumniJobs: ['Frontend Developer at WebWorks'],
-            skills: [],
+            name: 'Amina Khan',
+            university: 'University of Oxford',
+            subject: 'Data Science (Graduate Student)',
+            skills: ['Python', 'SQL', 'Machine Learning', 'Data Visualization (Tableau, Power BI)', 'Data Analysis (R, Excel)'],
+            interests: ['Predictive Analytics', 'Artificial Intelligence', 'Healthcare Data Science'],
             updatedSkills: [],
             recommendedCourses: []
         }
     ];
 
-    const jobSkills = {
-        'Software Engineer': ['Programming', 'Algorithms', 'Data Structures'],
-        'Backend Developer': ['Databases', 'APIs', 'Server-Side Development'],
-        'Data Scientist': ['Machine Learning', 'Statistics', 'Data Analysis'],
-        'Product Manager': ['Leadership', 'Strategic Thinking', 'Communication'],
-        'UX Designer': ['User Research', 'Prototyping', 'Design Thinking'],
-        'Frontend Developer': ['HTML/CSS', 'JavaScript', 'Responsive Design']
-    };
-
     const allSkills = [
-        'Programming', 'Algorithms', 'Data Structures', 'Databases', 'APIs', 'Server-Side Development',
-        'Machine Learning', 'Statistics', 'Data Analysis',
-        'Leadership', 'Strategic Thinking', 'Communication',
-        'User Research', 'Prototyping', 'Design Thinking',
-        'HTML/CSS', 'JavaScript', 'Responsive Design'
+        'HTML', 'CSS', 'JavaScript (basic)', 'JavaScript (advanced)', 'Teamwork', 'Git', 'React', 'Node.js', 'UI/UX Design',
+        'Data Collection', 'GIS (advanced)', 'Data Analysis', 'Environmental Impact Assessment', 'Policy Writing',
+        'SEO', 'Email Marketing', 'Adobe Photoshop', 'Adobe Illustrator',
+        'Finite Element Analysis', 'Control Systems', 'Robotics Programming',
+        'Deep Learning', 'Natural Language Processing', 'Big Data', 'Cloud Computing'
     ];
 
     const skillCourses = {
-        'Programming': [
-            { name: 'Complete Python Bootcamp', url: 'https://www.udemy.com/course/complete-python-bootcamp/' }
-        ],
-        'Algorithms': [
-            { name: 'Algorithms and Data Structures in Java', url: 'https://www.udemy.com/course/java-algorithms/' }
-        ],
-        'Data Structures': [
-            { name: 'Mastering Data Structures', url: 'https://www.udemy.com/course/mastering-data-structures/' }
-        ],
-        'Databases': [
-            { name: 'SQL for Data Analysis', url: 'https://www.udemy.com/course/sql-for-data-analysis/' }
-        ],
-        'APIs': [
-            { name: 'REST API Development with Flask and Python', url: 'https://www.udemy.com/course/rest-api-flask-and-python/' }
-        ],
-        'Server-Side Development': [
-            { name: 'Node.js Developer Course', url: 'https://www.udemy.com/course/the-complete-nodejs-developer-course-2/' }
-        ],
-        'Machine Learning': [
-            { name: 'Machine Learning A-Z', url: 'https://www.udemy.com/course/machinelearning/' }
-        ],
-        'Statistics': [
-            { name: 'Statistics for Data Science', url: 'https://www.udemy.com/course/statistics-data-science/' }
-        ],
-        'Data Analysis': [
-            { name: 'Data Analysis with Pandas and Python', url: 'https://www.udemy.com/course/data-analysis-with-pandas/' }
-        ],
-        'Leadership': [
-            { name: 'Leadership Mastery', url: 'https://www.udemy.com/course/leadership-mastery/' }
-        ],
-        'Strategic Thinking': [
-            { name: 'Strategic Thinking Skills', url: 'https://www.udemy.com/course/strategic-thinking-skills/' }
-        ],
-        'Communication': [
-            { name: 'Effective Communication Skills', url: 'https://www.udemy.com/course/communication-skills/' }
-        ],
-        'User Research': [
-            { name: 'User Experience Design Essentials', url: 'https://www.udemy.com/course/ui-ux-web-design-using-adobe-xd/' }
-        ],
-        'Prototyping': [
-            { name: 'UX & Web Design Master Course', url: 'https://www.udemy.com/course/ux-web-design-master-course-strategy-design-development/' }
-        ],
-        'Design Thinking': [
-            { name: 'Design Thinking Guide for Successful Professionals', url: 'https://www.udemy.com/course/design-thinking-guide/' }
-        ],
-        'HTML/CSS': [
-            { name: 'Modern HTML & CSS From The Beginning', url: 'https://www.udemy.com/course/modern-html-css-from-the-beginning/' }
-        ],
-        'JavaScript': [
+        'JavaScript (advanced)': [
             { name: 'The Complete JavaScript Course', url: 'https://www.udemy.com/course/the-complete-javascript-course/' }
         ],
-        'Responsive Design': [
-            { name: 'Responsive Web Design: HTML5 + CSS3 for Entrepreneurs', url: 'https://www.udemy.com/course/responsive-web-design/' }
+        'Git': [
+            { name: 'Git & GitHub Bootcamp', url: 'https://www.udemy.com/course/git-and-github-bootcamp/' }
+        ],
+        'React': [
+            { name: 'React - The Complete Guide', url: 'https://www.udemy.com/course/react-the-complete-guide-incl-redux/' }
+        ],
+        'Node.js': [
+            { name: 'The Complete Node.js Developer Course', url: 'https://www.udemy.com/course/the-complete-nodejs-developer-course-2/' }
+        ],
+        'UI/UX Design': [
+            { name: 'User Experience Design Essentials', url: 'https://www.udemy.com/course/ui-ux-web-design-using-adobe-xd/' }
+        ],
+        'GIS (advanced)': [
+            { name: 'Advanced GIS Techniques', url: 'https://www.udemy.com/course/advanced-gis-techniques/' }
+        ],
+        'Data Analysis': [
+            { name: 'Data Analysis with Python and Pandas', url: 'https://www.udemy.com/course/data-analysis-with-pandas/' }
+        ],
+        'Environmental Impact Assessment': [
+            { name: 'Environmental Impact Assessment Course', url: 'https://www.udemy.com/course/environmental-impact-assessment/' }
+        ],
+        'Policy Writing': [
+            { name: 'Policy Writing Masterclass', url: 'https://www.udemy.com/course/policy-writing/' }
+        ],
+        'SEO': [
+            { name: 'SEO Masterclass: Beginner to Advanced', url: 'https://www.udemy.com/course/seo-ultimate-guide/' }
+        ],
+        'Email Marketing': [
+            { name: 'Email Marketing Basics', url: 'https://www.udemy.com/course/email-marketing-basics/' }
+        ],
+        'Adobe Photoshop': [
+            { name: 'Adobe Photoshop CC – Essentials Training Course', url: 'https://www.udemy.com/course/adobe-photoshop-cc-essentials-training-course/' }
+        ],
+        'Adobe Illustrator': [
+            { name: 'Adobe Illustrator CC – Essentials Training', url: 'https://www.udemy.com/course/adobe-illustrator-cc-essentials-training/' }
+        ],
+        'Finite Element Analysis': [
+            { name: 'Finite Element Analysis for Mechanical Engineers', url: 'https://www.udemy.com/course/finite-element-analysis/' }
+        ],
+        'Control Systems': [
+            { name: 'Control Systems Made Simple', url: 'https://www.udemy.com/course/control-systems/' }
+        ],
+        'Robotics Programming': [
+            { name: 'Robotics: Learn by Building', url: 'https://www.udemy.com/course/robotics-learn-by-building/' }
+        ],
+        'Deep Learning': [
+            { name: 'Deep Learning A-Z™', url: 'https://www.udemy.com/course/deeplearning/' }
+        ],
+        'Natural Language Processing': [
+            { name: 'Natural Language Processing with Python', url: 'https://www.udemy.com/course/nlp-natural-language-processing-with-python/' }
+        ],
+        'Big Data': [
+            { name: 'Big Data Basics', url: 'https://www.udemy.com/course/big-data-basics/' }
+        ],
+        'Cloud Computing': [
+            { name: 'Cloud Computing Fundamentals', url: 'https://www.udemy.com/course/cloud-computing-fundamentals/' }
         ]
     };
 
-    function extractJobTitles(alumniJobs) {
-        return alumniJobs.map(job => job.split(' at ')[0]);
-    }
-
-    function extractSkillsFromJobs(jobTitles) {
-        let skills = [];
-        jobTitles.forEach(jobTitle => {
-            if (jobSkills[jobTitle]) {
-                skills = skills.concat(jobSkills[jobTitle]);
-            }
-        });
-        return [...new Set(skills)]; // Remove duplicates
-    }
-
-    function findCoursesForSkills(skills) {
+    function findCoursesForMissingSkills(profile) {
+        const existingSkills = profile.skills.map(skill => skill.toLowerCase());
+        const missingSkills = allSkills.filter(skill => !existingSkills.includes(skill.toLowerCase()));
         let courses = [];
-        skills.forEach(skill => {
+        missingSkills.forEach(skill => {
             if (skillCourses[skill]) {
                 skillCourses[skill].forEach(course => {
                     courses.push({ ...course, skill: skill });
@@ -195,14 +190,8 @@
         const profilesContainer = document.getElementById('profiles');
 
         profiles.forEach(profile => {
-            // Extract job titles
-            const jobTitles = extractJobTitles(profile.alumniJobs);
-            // Extract existing skills from jobs
-            profile.skills = extractSkillsFromJobs(jobTitles);
-            // Determine missing skills (skills they don't have)
-            const missingSkills = allSkills.filter(skill => !profile.skills.includes(skill));
             // Find courses for missing skills
-            profile.recommendedCourses = findCoursesForSkills(missingSkills);
+            profile.recommendedCourses = findCoursesForMissingSkills(profile);
 
             const profileDiv = document.createElement('div');
             profileDiv.className = 'profile';
@@ -211,9 +200,13 @@
             nameHeading.textContent = profile.name;
             profileDiv.appendChild(nameHeading);
 
-            const jobsPara = document.createElement('p');
-            jobsPara.textContent = `Alumni Jobs: ${profile.alumniJobs.join(', ')}`;
-            profileDiv.appendChild(jobsPara);
+            const uniPara = document.createElement('p');
+            uniPara.textContent = `University: ${profile.university}`;
+            profileDiv.appendChild(uniPara);
+
+            const subjectPara = document.createElement('p');
+            subjectPara.textContent = `Subject: ${profile.subject}`;
+            profileDiv.appendChild(subjectPara);
 
             const skillsHeading = document.createElement('h3');
             skillsHeading.textContent = 'Current Skills:';
@@ -229,7 +222,7 @@
             profileDiv.appendChild(skillsList);
 
             const coursesHeading = document.createElement('h3');
-            coursesHeading.textContent = 'Recommended Courses (Skills You Don\'t Have Yet):';
+            coursesHeading.textContent = 'Recommended Courses for New Skills:';
             profileDiv.appendChild(coursesHeading);
 
             const coursesList = document.createElement('ul');
